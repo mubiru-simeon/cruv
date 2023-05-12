@@ -1,0 +1,6 @@
+package com.dorx.cruv
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
