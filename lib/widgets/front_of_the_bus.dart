@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../services/services.dart';
 
-class MovieTeatherScreen extends StatelessWidget {
-  const MovieTeatherScreen({
+class FrontOfTheBus extends StatelessWidget {
+  const FrontOfTheBus({
     Key key,
     @required this.image,
     @required this.maxWidth,
@@ -16,6 +16,7 @@ class MovieTeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("dsds");
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [

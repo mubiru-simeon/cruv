@@ -182,82 +182,97 @@ class _AllBerthsViewState extends State<AllBerthsView> {
                   child: Padding(
                     padding: const EdgeInsets.all(standardPadding * 2),
                     child: Column(
-                      children: columnItems.entries.map<Widget>(
-                        (e) {
-                          List rowItems = e.value ?? [];
+                      children: [
+                        SizedBox(
+                          height: 60,
+                          width: 300,
+                          child: FrontOfTheBus(
+                            image: logo,
+                            maxHeigth: 300,
+                            maxWidth: MediaQuery.of(context).size.width,
+                          ),
+                        ),
+                        Column(
+                          children: columnItems.entries.map<Widget>(
+                            (e) {
+                              List rowItems = e.value ?? [];
 
-                          int currentColumnIndex =
-                              columnItems.values.toList().indexOf(e.value);
+                              int currentColumnIndex =
+                                  columnItems.values.toList().indexOf(e.value);
 
-                          return Row(
-                            children: rowItems.map<Widget>(
-                              (v) {
-                                int currentRowIndex = rowItems.indexOf(v);
+                              return Row(
+                                children: rowItems.map<Widget>(
+                                  (v) {
+                                    int currentRowIndex = rowItems.indexOf(v);
 
-                                return MovieSeatBox(
-                                  testing: false,
-                                  seatID: v,
-                                  toTheSouth: currentColumnIndex + 1 >
-                                          columnItems.length - 1
-                                      ? null
-                                      : (getSeatfromID(
-                                                box,
-                                                columnItems.values.toList()[
-                                                        currentColumnIndex + 1]
-                                                    [currentRowIndex],
-                                              ).blankSpace) ==
-                                              true
+                                    return MovieSeatBox(
+                                      testing: false,
+                                      seatID: v,
+                                      toTheSouth: currentColumnIndex + 1 >
+                                              columnItems.length - 1
                                           ? null
-                                          : columnItems.values.toList()[
-                                                  currentColumnIndex + 1]
-                                              [currentRowIndex],
-                                  toTheNorth: currentColumnIndex - 1 < 0
-                                      ? null
-                                      : (getSeatfromID(
-                                                box,
-                                                columnItems.values.toList()[
-                                                        currentColumnIndex - 1]
-                                                    [currentRowIndex],
-                                              ).blankSpace) ==
-                                              true
+                                          : (getSeatfromID(
+                                                    box,
+                                                    columnItems.values.toList()[
+                                                        currentColumnIndex +
+                                                            1][currentRowIndex],
+                                                  ).blankSpace) ==
+                                                  true
+                                              ? null
+                                              : columnItems.values.toList()[
+                                                      currentColumnIndex + 1]
+                                                  [currentRowIndex],
+                                      toTheNorth: currentColumnIndex - 1 < 0
                                           ? null
-                                          : columnItems.values.toList()[
-                                                  currentColumnIndex - 1]
-                                              [currentRowIndex],
-                                  toTheLeft: currentRowIndex - 1 < 0
-                                      ? null
-                                      : (getSeatfromID(
-                                                box,
-                                                rowItems[currentRowIndex - 1],
-                                              ).blankSpace) ==
-                                              true
+                                          : (getSeatfromID(
+                                                    box,
+                                                    columnItems.values.toList()[
+                                                        currentColumnIndex -
+                                                            1][currentRowIndex],
+                                                  ).blankSpace) ==
+                                                  true
+                                              ? null
+                                              : columnItems.values.toList()[
+                                                      currentColumnIndex - 1]
+                                                  [currentRowIndex],
+                                      toTheLeft: currentRowIndex - 1 < 0
                                           ? null
-                                          : rowItems[currentRowIndex - 1],
-                                  toTheRight: currentRowIndex + 1 >
-                                          rowItems.length - 1
-                                      ? null
-                                      : (getSeatfromID(
-                                                box,
-                                                rowItems[currentRowIndex + 1],
-                                              ).blankSpace) ==
-                                              true
+                                          : (getSeatfromID(
+                                                    box,
+                                                    rowItems[
+                                                        currentRowIndex - 1],
+                                                  ).blankSpace) ==
+                                                  true
+                                              ? null
+                                              : rowItems[currentRowIndex - 1],
+                                      toTheRight: currentRowIndex + 1 >
+                                              rowItems.length - 1
                                           ? null
-                                          : rowItems[currentRowIndex + 1],
-                                  menuable: editable,
-                                  onTap: () {
-                                    CommunicationServices().showToast(
-                                      "Tapped",
-                                      primaryColor,
+                                          : (getSeatfromID(
+                                                    box,
+                                                    rowItems[
+                                                        currentRowIndex + 1],
+                                                  ).blankSpace) ==
+                                                  true
+                                              ? null
+                                              : rowItems[currentRowIndex + 1],
+                                      menuable: editable,
+                                      onTap: () {
+                                        CommunicationServices().showToast(
+                                          "Tapped",
+                                          primaryColor,
+                                        );
+                                      },
+                                      selected: false,
+                                      seat: null,
                                     );
                                   },
-                                  selected: false,
-                                  seat: null,
-                                );
-                              },
-                            ).toList(),
-                          );
-                        },
-                      ).toList(),
+                                ).toList(),
+                              );
+                            },
+                          ).toList(),
+                        ),
+                      ],
                     ),
                   ),
                 );

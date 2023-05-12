@@ -244,7 +244,7 @@ class _AddNewTrainBottomSheetState extends State<AddNewTrainBottomSheet> {
                             SizedBox(
                               height: MediaQuery.of(context).size.height * .1,
                               width: MediaQuery.of(context).size.width * 0.5,
-                              child: MovieTeatherScreen(
+                              child: FrontOfTheBus(
                                 image: logo,
                                 maxHeigth:
                                     MediaQuery.of(context).size.height * 0.2,
