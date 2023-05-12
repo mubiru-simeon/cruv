@@ -78,8 +78,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               .map<Widget>(
                                 (e) => singleDrawerItem(
                                   onDelete: () {
-                                    dynamic ss =
-                                        box.get(Train.DIRECTORY) ?? {};
+                                    dynamic ss = box.get(Train.DIRECTORY) ?? {};
 
                                     for (var element in ss.entries) {
                                       if (element.key == e.id) {
@@ -147,30 +146,32 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   setState(() {});
                 },
               ),
-              CustomButton(
-                onPressed: () async {
-                  await UIServices()
-                      .showDatSheet(
-                    AddNewTrainBottomSheet(),
-                    true,
-                    context,
-                  )
-                      .then((value) {
-                    resetRooms();
-                  });
-                },
-                text: "Add a train",
-              ),
-              CustomButton(
-                onPressed: () async {
-                  box.clear();
-                  Provider.of<TrainSelection>(context, listen: false).clear();
-                  rows.clear();
+              if (editableBerths)
+                CustomButton(
+                  onPressed: () async {
+                    await UIServices()
+                        .showDatSheet(
+                      AddNewTrainBottomSheet(),
+                      true,
+                      context,
+                    )
+                        .then((value) {
+                      resetRooms();
+                    });
+                  },
+                  text: "Add a train",
+                ),
+              if (editableBerths)
+                CustomButton(
+                  onPressed: () async {
+                    box.clear();
+                    Provider.of<TrainSelection>(context, listen: false).clear();
+                    rows.clear();
 
-                  setState(() {});
-                },
-                text: "Clear all trains and seats",
-              ),
+                    setState(() {});
+                  },
+                  text: "Clear all trains and seats",
+                ),
               if (!kIsWeb)
                 Padding(
                   padding: const EdgeInsets.all(
