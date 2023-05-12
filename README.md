@@ -23,12 +23,12 @@ The berths and trains are stored in the same box, for simplicity, in a Map objec
 Additionally, i implemented a light theme and dark theme too in the app for a better user experience.
 
 Technologies Used:
-Flutter,
-Dart,
-VS Code (I know it doesn't count as a techstack, but... Enh. Bear with me)
-Lots of coffee
+* Flutter,
+* Dart,
+* VS Code (I know it doesn't count as a techstack, but... Enh. Bear with me)
+* Lots of coffee
 
 
 ## Credits
 Built by Simeon. 
-Github username: mubiru-simeon
+* Github username: mubiru-simeon
